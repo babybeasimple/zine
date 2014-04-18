@@ -5,10 +5,7 @@
 (set-env!
   :project      'zine
   :version      "0.1.0-SNAPSHOT"
-  :dependencies '[[tailrecursion/boot.task   "2.1.2"]
-                  [tailrecursion/hoplon      "5.7.1"]
-                  [org.clojure/clojurescript "0.0-2156"]
-                  [tailrecursion/boot.ring   "0.1.0-SNAPSHOT"]]
+  :dependencies (read-string (slurp "deps.edn"))
   :out-path     "resources/public"
   :src-paths    #{"src/hl" "src/cljs" "src/clj"})
 
