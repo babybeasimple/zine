@@ -1,7 +1,7 @@
 (page "index.html"
   (:require [zine.rpc :as rpc]))
 
-(defc= random rpc/random-number)
+(defc= posts rpc/posts)
 
 (rpc/init)
 
@@ -9,4 +9,8 @@
   (head
     (link :rel "stylesheet" :type "text/css" :href "css/main.css"))
   (body
-    (h1 (text "Hello, Hoplon and Castra! ~{random}"))))
+    (loop-tpl :bindings [{:keys [title content]} posts]
+      (p
+        (h1 @title)
+        (div @content)
+        (hr)))))

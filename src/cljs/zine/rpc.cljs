@@ -5,15 +5,14 @@
    [tailrecursion.javelin]
    [tailrecursion.castra :refer [mkremote]]))
 
-(defc state {:random nil})
+(defc state {:posts []})
 (defc error nil)
 (defc loading [])
 
-(defc= random-number (get state :random))
+(defc= posts (get state :posts))
 
 (def get-state
   (mkremote 'zine.api/get-state state error loading))
 
 (defn init []
-  (get-state)
-  (js/setInterval get-state 1000))
+  (get-state))
